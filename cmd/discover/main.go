@@ -2,6 +2,7 @@
 package main
 
 import (
+	"errors"
 	"flag"
 	"fmt"
 	"io"
@@ -41,6 +42,9 @@ func main() {
 	addrs, err := d.Addrs(strings.Join(args, " "), l)
 	if err != nil {
 		l.Fatal(err)
+	}
+	if len(addrs) == 0 {
+		l.Fatal(errors.New("Unable to find any matching instances"))
 	}
 	fmt.Println(strings.Join(addrs, " "))
 }
