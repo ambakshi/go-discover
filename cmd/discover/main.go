@@ -46,5 +46,5 @@ func main() {
 	if len(addrs) == 0 {
 		l.Fatal(errors.New("Unable to find any matching instances"))
 	}
-	fmt.Println(strings.Join(addrs, " "))
+	fmt.Println(strings.Join(addrs, "\n"))
 }
